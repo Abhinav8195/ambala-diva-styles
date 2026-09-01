@@ -64,16 +64,65 @@ export const Route = createFileRoute("/")({
   loader: async () => {
     return await getReviews();
   },
-  head: () => ({
-    meta: [
-      { title: "Gore Di Hatti | Ladies' Suits, Gowns & Lehengas Shop — Ambala" },
-      {
-        name: "description",
-        content:
-          "Gore Di Hatti is a wholesale and retail shop for ladies suits, gowns, and lehengas in Ambala. Discover designer wear, party wear and daily wear with trusted fabrics.",
-      },
-    ],
-  }),
+  head: () => {
+    const title = "Gore Di Hatti | Best Ladies Suits & Bridal Lehengas Shop in Ambala";
+    const description = "Welcome to Gore Di Hatti, Ambala's premier destination for wholesale and retail ladies suits, designer gowns, bridal lehengas, and party wear. Visit our store in Nadi Mohalla for premium fabrics at the best prices.";
+    
+    return {
+      meta: [
+        { title },
+        { name: "description", content: description },
+        { name: "keywords", content: "ladies suits Ambala, bridal lehengas Ambala, wholesale suits Ambala, designer gowns, Gore Di Hatti, best clothes shop in Ambala, Nadi Mohalla clothing, party wear suits, premium women's clothing Haryana, ladies wear retail" },
+        { name: "author", content: "Gore Di Hatti" },
+        { name: "robots", content: "index, follow" },
+        
+        // Open Graph (Facebook / WhatsApp / Instagram)
+        { property: "og:title", content: title },
+        { property: "og:description", content: description },
+        { property: "og:type", content: "website" },
+        { property: "og:site_name", content: "Gore Di Hatti" },
+        { property: "og:locale", content: "en_IN" },
+        { property: "og:url", content: "https://goredihatti.com" }, // User can update with actual domain later
+        
+        // Twitter Cards
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:title", content: title },
+        { name: "twitter:description", content: description },
+      ],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ClothingStore",
+            "name": "Gore Di Hatti",
+            "description": description,
+            "url": "https://goredihatti.com",
+            "telephone": "+917206642153",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Near Prem Mandir, Nadi Mohalla",
+              "addressLocality": "Ambala City",
+              "addressRegion": "Haryana",
+              "postalCode": "134003",
+              "addressCountry": "IN"
+            },
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Friday", "Saturday", "Sunday"],
+                "opens": "09:30",
+                "closes": "19:30"
+              }
+            ],
+            "sameAs": [
+              "https://www.instagram.com/gore.di.hatti"
+            ]
+          })
+        }
+      ]
+    };
+  },
   component: Index,
 });
 
