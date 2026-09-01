@@ -5,7 +5,7 @@ import { Star, MapPin, ArrowRight, Sparkles } from "lucide-react";
 import { ReactGoogleReviews } from "react-google-reviews";
 import "react-google-reviews/dist/index.css";
 
-import bgVideo from "../assets/v2.mp4";
+import bgVideo from "../assets/v2.MP4";
 import heroSuit from "../assets/hero-suit.jpg";
 import designerSuit from "../assets/designer-suit.jpg";
 import partyWear from "../assets/party-wear.jpg";
